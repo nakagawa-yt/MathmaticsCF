@@ -88,7 +88,14 @@
         .accordion-content.active {
             display: block;
         }
-
+        
+        .unit-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+        
         .unit-grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -380,6 +387,20 @@
                                     <a href="Checking/平面ベクトル No.2 ベクトルの減法.html" target="_blank" class="item-link-text">No.2 ベクトルの減法</a>
                                 </div>
                             </div>
+                            <div class="section-header" onclick="toggleNested(this, 'check-vec-s2')">第2節 ベクトルと図形</div>
+                            <div id="check-vec-s2" class="hidden">
+                                <div class="link-item">
+                                    <input type="checkbox" class="progress-checkbox">
+                                    <a href="#" target="_blank" class="item-link-text">・</a>
+                                </div>
+                            </div>
+
+                            <div class="section-header" onclick="toggleNested(this, 'check-vec-s3')">第3節 空間におけるベクトル</div>
+                            <div id="check-vec-s3" class="hidden">
+                                <div class="link-item">
+                                    <input type="checkbox" class="progress-checkbox">
+                                    <a href="Checking/空間ベクトル No.1.html" target="_blank" class="item-link-text">No.1 一直線上にある条件</a>
+                                </div>
                         </div>
                     </div>
                     <div class="unit-section">
@@ -443,16 +464,30 @@
                     <div class="unit-section">
                         <div class="unit-header" onclick="toggleNested(this, 'print-vec')">ベクトル</div>
                         <div id="print-vec" class="hidden mt-1">
-                            <div class="section-header" onclick="toggleNested(this, 'print-vec-s1')">第1節 平面ベクトル</div>
-                            <div id="print-vec-s1" class="hidden">
-                                <div class="link-item">
-                                    <input type="checkbox" class="progress-checkbox">
-                                    <a href="#" class="item-link-text">・演習：終点の存在範囲</a>
-                                </div>
-                                <div class="link-item">
-                                    <input type="checkbox" class="progress-checkbox">
-                                    <a href="#" class="item-link-text">・小テスト：ベクトルの内積</a>
-                                </div>
+                        <div class="section-header" onclick="toggleNested(this, 'print-vec-s1')">第1節 平面ベクトル</div>
+                        <div id="print-vec-s1" class="hidden">
+                            <div class="link-item">
+                                <input type="checkbox" class="progress-checkbox">
+                                <a href="#" class="item-link-text">・演習：終点の存在範囲</a>
+                            </div>
+                            <div class="link-item">
+                                <input type="checkbox" class="progress-checkbox">
+                                <a href="#" class="item-link-text">・小テスト：ベクトルの内積</a>
+                            </div>
+                         </div>
+                         <div class="section-header" onclick="toggleNested(this, 'print-vec-s2')">第2節 ベクトルと図形</div>
+                         <div id="print-vec-s2" class="hidden">
+                            <div class="link-item">
+                                <input type="checkbox" class="progress-checkbox">
+                                <a href="#" target="_blank" class="item-link-text">・</a>
+                            </div>
+                        </div>
+
+                        <div class="section-header" onclick="toggleNested(this, 'print-vec-s3')">第3節 空間におけるベクトル</div>
+                        <div id="print-vec-s3" class="hidden">
+                            <div class="link-item">
+                                <input type="checkbox" class="progress-checkbox">
+                                <a href="Checking/空間ベクトル No.1.html" target="_blank" class="item-link-text">No.1 一直線上にある条件</a>
                             </div>
                         </div>
                     </div>
@@ -561,58 +596,26 @@
                 <span class="arrow transition-transform">▼</span>
             </div>
             <div id="print-content" class="accordion-content">
-                <p class="text-sm opacity-60 mb-4">テストや課題プリントです</p>
-                <div class="unit-grid-3">
+                <p class="text-sm opacity-60 mb-4">試験の解答系です</p>
+                <div class="unit-grid-2">
                     <div class="unit-section">
-                        <div class="unit-header" onclick="toggleNested(this, 'print-vec')">ベクトル</div>
-                        <div id="print-vec" class="hidden mt-1">
-                            <div class="section-header" onclick="toggleNested(this, 'print-vec-s1')">第1節 平面ベクトル</div>
-                            <div id="print-vec-s1" class="hidden">
-                                <div class="link-item">
-                                    <input type="checkbox" class="progress-checkbox">
-                                    <a href="#" class="item-link-text">・演習：終点の存在範囲</a>
-                                </div>
-                                <div class="link-item">
-                                    <input type="checkbox" class="progress-checkbox">
-                                    <a href="#" class="item-link-text">・小テスト：ベクトルの内積</a>
+                        <div class="unit-header" onclick="toggleNested(this, 'pri-com')">試験の解答</div>
+                        <div id="pri-com" class="hidden mt-1">
+                            <input type="checkbox" class="progress-checkbox">
+                            <a href="#" target="_blank" class="item-link-text" onclick="toggleNested(this, 'pri-com-s1')">1学期中間試験</a>
+                            <div id="pri-com-s1" class="hidden"></div>
+                        </div>
+                    </div>
+                    <div class="unit-section">
+                        <div class="unit-header" onclick="toggleNested(this, 'pri-vec')">課題の解答</div>
+                        <div id="pri-vec" class="hidden mt-1">
+                            <input type="checkbox" class="progress-checkbox">
+                            <a href="#" target="_blank" class="item-link-text" onclick="toggleNested(this, 'pri-vec-s1')">夏休み課題</a>
+                            <div id="pri-vec-s1" class="hidden"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="unit-section">
-                        <div class="unit-header" onclick="toggleNested(this, 'print-cur')">平面上の曲線</div>
-                        <div id="print-cur" class="hidden mt-1">
-                            <div class="section-header" onclick="toggleNested(this, 'print-cur-s1')">第1節 2次曲線</div>
-                            <div id="print-cur-s1" class="hidden">
-                                <div class="link-item">
-                                    <input type="checkbox" class="progress-checkbox">
-                                    <a href="#" class="item-link-text">・演習：放物線の接線</a>
-                                </div>
-                                <div class="link-item">
-                                    <input type="checkbox" class="progress-checkbox">
-                                    <a href="#" class="item-link-text">・まとめ：2次曲線の判別</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="unit-section">
-                        <div class="unit-header" onclick="toggleNested(this, 'print-com')">複素数平面</div>
-                        <div id="print-com" class="hidden mt-1">
-                            <div class="section-header" onclick="toggleNested(this, 'print-com-s1')">第1節 複素数平面</div>
-                            <div id="print-com-s1" class="hidden">
-                                <div class="link-item">
-                                    <input type="checkbox" class="progress-checkbox">
-                                    <a href="#" class="item-link-text">・演習：n乗の計算</a>
-                                </div>
-                                <div class="link-item">
-                                    <input type="checkbox" class="progress-checkbox">
-                                    <a href="#" class="item-link-text">・小テスト：極形式の変換</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <section id="tools" class="mb-12">
