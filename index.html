@@ -705,6 +705,69 @@
                 }
             });
         });
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const header = content.previousElementSibling;
+            const arrow = header.querySelector('.arrow');
+        
+            content.classList.toggle('active');
+            if (content.classList.contains('active')) {
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function toggleNested(headerEl, id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('hidden');
+            headerEl.classList.toggle('active');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+            
+                if (targetElement) {
+                    const offset = 100;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = targetElement.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    const content = document.getElementById(targetId + '-content');
+                    if (content && !content.classList.contains('active')) {
+                        toggleAccordion(targetId + '-content');
+                    }
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.progress-checkbox');
+
+            checkboxes.forEach((checkbox, index) => {
+                const key = `mathC_checkbox_${index}`;
+
+          const saved = localStorage.getItem(key);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(key, checkbox.checked);
+                });
+            });
+        });
     </script>
 </body>
 </html>
